@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Halonen, MBA - Your Twin Cities Real Estate Expert | RE/MAX Results</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #c8102e;
+            --secondary: #003da5;
+            --accent: #f4c430;
+            --dark: #1a1a1a;
+            --light: #ffffff;
+            --gray: #6b7280;
+            --success: #10b981;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 2rem;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,224C672,213,768,171,864,165.3C960,160,1056,192,1152,197.3C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--light);
+            margin-bottom: 1rem;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .credentials {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .credential-badge {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            color: var(--light);
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent);
+            display: block;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--dark);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(244, 196, 48, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--light);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Form Section */
+        .hero-form-container {
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        .form-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-header h2 {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header p {
+            color: var(--gray);
+        }
+
+        .trust-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.1);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .radio-option {
+            flex: 1;
+            position: relative;
+        }
+
+        .radio-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .radio-label {
+            display: block;
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .radio-option input[type="radio"]:checked + .radio-label {
+            background: var(--primary);
+            color: var(--light);
+            border-color: var(--primary);
+        }
+
+        /* Value Props Section */
+        .value-props {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .value-card p {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 2rem;
+            background: var(--light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .profile-card {
+            text-align: center;
+            position: relative;
+        }
+
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .contact-card {
+            background: var(--gradient);
+            color: var(--light);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #f4c430 0%, #f4c430 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 40%;
+            background-position: 0 85%;
+            padding: 0 5px;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .expertise-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .expertise-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .testimonials .section-header h2 {
+            color: var(--light);
+            -webkit-text-fill-color: var(--light);
+        }
+
+        .testimonials .section-header p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            color: var(--light);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--dark);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 2rem;
+            background: var(--dark);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            color: var(--light);
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            background: #0a0a0a;
+            text-align: center;
+            color: var(--light);
+        }
+
+        /* Animations */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: var(--success);
+            color: var(--light);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: slideInDown 0.5s ease;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .expertise-list {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Your Family's Next Chapter Starts Here</h1>
+                <p class="subtitle">MBA-Powered Negotiations. Family-First Service.</p>
+                
+                <div class="credentials">
+                    <span class="credential-badge">🎓 MBA, St. Cloud State</span>
+                    <span class="credential-badge">🏆 7+ Years Experience</span>
+                    <span class="credential-badge">🏡 RE/MAX Results</span>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <span class="stat-number">$25K+</span>
+                        <span class="stat-label">Saved in Repairs</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">$40K</span>
+                        <span class="stat-label">Max Savings</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Happy Families</span>
+                    </div>
+                </div>
+
+                <div class="hero-cta">
+                    <button class="btn btn-primary pulse" onclick="document.getElementById('leadForm').scrollIntoView({behavior: 'smooth'})">
+                        🏠 Get Your Home Value
+                    </button>
+                    <a href="tel:3202901788" class="btn btn-secondary">
+                        📞 Call (320) 290-1788
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-form-container">
+                <div class="form-card" id="leadForm">
+                    <div class="form-header">
+                        <h2>Start Your Journey</h2>
+                        <p>Get expert guidance tailored to your needs</p>
+                    </div>
+
+                    <div class="trust-indicators">
+                        <span class="trust-badge">🔒 100% Secure</span>
+                        <span class="trust-badge">⚡ Instant Response</span>
+                        <span class="trust-badge">💰 No Obligation</span>
+                    </div>
+
+                    <div class="success-message" id="successMessage">
+                        ✓ Thank you! James will contact you within 15 minutes during business hours.
+                    </div>
+
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label>I'm looking to:</label>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="buy" name="intent" value="buy" required>
+                                    <label for="buy" class="radio-label">Buy</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="sell" name="intent" value="sell" required>
+                                    <label for="sell" class="radio-label">Sell</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="both" name="intent" value="both" required>
+                                    <label for="both" class="radio-label">Both</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="timeline">Timeline</label>
+                            <select id="timeline" name="timeline" class="form-control">
+                                <option value="">Select timeline...</option>
+                                <option value="asap">ASAP</option>
+                                <option value="1-3months">1-3 Months</option>
+                                <option value="3-6months">3-6 Months</option>
+                                <option value="6+months">6+ Months</option>
+                                <option value="exploring">Just Exploring</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="location">Preferred Area/Current Address</label>
+                            <input type="text" id="location" name="location" class="form-control" placeholder="e.g., Edina, Minnetonka, or current address">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.2rem;">
+                            Get Started Today →
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Props Section -->
+    <section class="value-props">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Families Choose James</h2>
+                <p>Combining financial expertise with genuine care for your family's future</p>
+            </div>
+
+            <div class="value-grid">
+                <div class="value-card">
+                    <div class="value-icon">💼</div>
+                    <h3>MBA Advantage</h3>
+                    <p>Leverage my portfolio management background and business strategy expertise to make smarter real estate decisions. Every home is analyzed as both a lifestyle choice and financial investment.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">💰</div>
+                    <h3>Proven Negotiator</h3>
+                    <p>Secured $25,000+ in inspection repairs and saved clients up to $40,000 on new construction. My negotiation skills consistently deliver exceptional value for every client.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">👨‍👩‍👧‍👦</div>
+                    <h3>Family-First Focus</h3>
+                    <p>As a father, I understand the importance of finding the perfect home for your family. I guide you through every step with patience, empathy, and genuine care for your family's needs.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">📈</div>
+                    <h3>Investment Expertise</h3>
+                    <p>Whether it's your first home or expanding your portfolio, my financial modeling and market analysis skills help you identify opportunities others miss.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">🎯</div>
+                    <h3>First-Timer Specialist</h3>
+                    <p>Making your first home purchase simple and stress-free. I provide step-by-step education and guidance, ensuring you understand every aspect of the process.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">🏆</div>
+                    <h3>Twin Cities Expert</h3>
+                    <p>Deep knowledge of Edina, Minnetonka, Maple Grove, St. Louis Park, and the entire Metro area. I know the schools, neighborhoods, and hidden gems that make each area unique.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="profile-card">
+                    <img src="Updated Business Pic.jpeg" alt="James Halonen, MBA - REALTOR" class="profile-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div style="display:none; width:300px; height:300px; background: var(--gradient); border-radius: 20px; align-items: center; justify-content: center; font-size: 4rem; color: white; font-weight: bold; margin-bottom: 2rem;">JH</div>
+                    <div class="contact-card">
+                        <div class="contact-item">
+                            <span>📞</span>
+                            <a href="tel:3202901788" style="color: white; text-decoration: none;">(320) 290-1788</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>📧</span>
+                            <a href="mailto:James@ProTeamMn.com" style="color: white; text-decoration: none;">James@ProTeamMn.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>🏢</span>
+                            <span>RE/MAX Results - Edina</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-text">
+                    <h2>Meet James Halonen, <span class="highlight">MBA</span></h2>
+                    <p>I combine the heart of a family-first REALTOR® with the mind of an MBA. With over 7 years of experience and a background in portfolio management, I see every home not just as a property, but as a life investment.</p>
+                    
+                    <p>My approach is simple: treat every client like family while negotiating with the precision of a numbers-driven professional. Whether you're a first-time buyer feeling overwhelmed or an investor looking for your next opportunity, I bring humility, resilience, and gratitude to every transaction.</p>
+
+                    <div class="expertise-list">
+                        <div class="expertise-item">
+                            <span>✓</span>
+                            <span>First-Time Buyer Education</span>
+                        </div>
+                        <div class="expertise-item">
+                            <span>✓</span>
+                            <span>Family Relocation Support</span>
+                        </div>
+                        <div class="expertise-item">
+                            <span>✓</span>
+                            <span>Investment Analysis</span>
+                        </div>
+                        <div class="expertise-item">
+                            <span>✓</span>
+                            <span>New Construction Savings</span>
+                        </div>
+                        <div class="expertise-item">
+                            <span>✓</span>
+                            <span>Strategic Negotiations</span>
+                        </div>
+                        <div class="expertise-item">
+                            <span>✓</span>
+                            <span>Market Insights</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Client Success Stories</h2>
+                <p>Real results from real families</p>
+            </div>
+
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"James saved us $25,000 in inspection repairs! His MBA background really showed when he analyzed the market and negotiated on our behalf. We couldn't be happier with our new home."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SM</div>
+                        <div>
+                            <strong>Sarah M.</strong><br>
+                            <small>First-Time Buyer</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"As investors, we appreciate James's financial expertise. He helped us identify undervalued properties and his market analysis was spot-on. Highly professional and knowledgeable."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RJ</div>
+                        <div>
+                            <strong>Robert & Jennifer</strong><br>
+                            <small>Investment Property</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Moving with three kids was stressful, but James made it so much easier. He understood our needs as a family and found us the perfect home in a great school district. Truly grateful!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">KT</div>
+                        <div>
+                            <strong>Kevin T.</strong><br>
+                            <small>Family Relocation</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Make Your Move?</h2>
+            <p>Join hundreds of families who've found their perfect home with James</p>
+            <div class="hero-cta" style="justify-content: center;">
+                <button class="btn btn-primary pulse" onclick="document.getElementById('leadForm').scrollIntoView({behavior: 'smooth'})">
+                    Start Your Journey Today
+                </button>
+                <a href="tel:3202901788" class="btn btn-secondary">
+                    Call Now: (320) 290-1788
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 James Halonen, MBA | REALTOR® | RE/MAX Results - Pro Team</p>
+        <p>Minneapolis-St. Paul Metro Area | DRE# [Your License Number]</p>
+    </footer>
+
+    <script>
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+            
+            // Show success message
+            document.getElementById('successMessage').classList.add('show');
+            
+            // Scroll to success message
+            document.getElementById('successMessage').scrollIntoView({behavior: 'smooth', block: 'nearest'});
+            
+            // Reset form after 2 seconds
+            setTimeout(() => {
+                this.reset();
+            }, 2000);
+            
+            // In production, you would send this data to your server
+            console.log('Lead captured:', data);
+            
+            // Example: Send to your server
+            // fetch('/api/leads', {
+            //     method: 'POST',
+            //     headers: {'Content-Type': 'application/json'},
+            //     body: JSON.stringify(data)
+            // });
+        });
+
+        // Add smooth scroll for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add parallax effect to hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all value cards and testimonials
+        document.querySelectorAll('.value-card, .testimonial-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
